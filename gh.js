@@ -13,9 +13,6 @@ $(document).ready(function(){
 		var designer = getIDs('.deslinks', '.designerselected');
 		var size = getIDs('.sizelinks', '.sizeselected');
 		var location = getIDs('.loclinks', '.locationselected');
-		// console.log(category);
-		// console.log(designer);
-		// console.log(size);
 		var savedSearch = {
 						   'title': title,
 						   'category': category, 
@@ -25,7 +22,6 @@ $(document).ready(function(){
 						  };
 
 		chrome.storage.sync.get('grailedSearch', function (obj) {
-			console.log('yo');
 			if(typeof obj === undefined)
 				var grailedSearch = {'grailedSearch': []};
 			else
@@ -38,7 +34,13 @@ $(document).ready(function(){
 
 	function getSaved(){
 		chrome.storage.sync.get('grailedSearch', function (obj) {
-		    console.log(obj['grailedSearch']);
+			if(obj['grailedSearch'] === undefined) {
+				obj = {'grailedSearch': []};
+				chrome.storage.sync.set(obj, function() {
+		          console.log('Initial setup completed');
+		        });
+		        return false;
+			}
 		    var arr = obj['grailedSearch'];
 		    for(var i = 0; i < arr.length; i++){
 		    	var htmlButton = '<div class="gh-saved-search" id="actionlinks"><a class="gh-filter-buttons" id="gh-button-' + i +'" href="#">' + arr[i]["title"] + '</a><a class="gh-delete-buttons" id="gh-delete-' + i +'" href="#">X</a></div>';
@@ -46,10 +48,8 @@ $(document).ready(function(){
 		    }
 		    $('.gh-filter-buttons').click(function(){
 		    	var buttonID = /\d/.exec($(this).attr('id'))[0];
-				console.log(buttonID);
 				chrome.storage.sync.get('grailedSearch', function (obj) {
 					var filters = obj['grailedSearch'][buttonID];
-					console.log(filters);
 					window.history.pushState({}, "", "/");
 					$('.removeall').trigger('click');
 					$('.dremoveall').trigger('click');
@@ -72,8 +72,7 @@ $(document).ready(function(){
 				$(this).parent().remove();
 				obj['grailedSearch'].splice(buttonID, 1);
 		        chrome.storage.sync.set(obj, function() {
-		          console.log('removed');
-
+		          console.log(obj + ' removed');
 		        });
 			})
 
@@ -94,7 +93,6 @@ $(document).ready(function(){
 	}
 	function storeSearch(grailedSearch, newSearch){
 		grailedSearch["grailedSearch"].push(newSearch);
-		console.log(grailedSearch["grailedSearch"]);
         chrome.storage.sync.set(grailedSearch, function() {
           console.log(grailedSearch + ' saved');
         });
