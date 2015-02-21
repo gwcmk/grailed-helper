@@ -1,8 +1,8 @@
 $(document).ready(function(){
 	if(!$('#b900 #categories').length) return false;
 
-	$('#b900').prepend('<style type="text/css">.gh-buttons{margin: 1.5em;}.gh-buttons a, .gh-save-button,.gh-saved-search{margin:0!important;}.gh-filter-buttons{width:90%!important;}.gh-saved-search a{display:inline-block!important;}.gh-delete-buttons{width:10%!important;}.gh-col{width:45%;display:inline-block;vertical-align:top;margin-right:1em;}.gh-new-filter,.gh-live-search{margin-bottom: 0.5em;width:90%;}#gh-error{color:red;}</style><div class="gh-buttons"><div class="gh-col"><h4>Save a filter</h4><input class="gh-new-filter" /><div id="actionlinks" class="gh-save-button"><a id="gh-save" href="#">SAVE</a></div><div id="gh-error"></div></div></div>');
-	$('.gh-buttons').append('<div class="gh-col"><h4>Saved Filters</h4><input class="gh-live-search" /></div>');
+	$('#b900').prepend('<style type="text/css">.gh-buttons{margin: 1.5em;}.gh-buttons a, .gh-save-button,.gh-saved-search{margin:0!important;}.gh-filter-buttons{width:90%!important;}.gh-saved-search a{display:inline-block!important;}.gh-delete-buttons{width:10%!important;}.gh-col{width:45%;display:inline-block;vertical-align:top;margin-right:1em;}.gh-new-filter,.gh-live-search{margin-bottom: 0.5em;width:90%;}#gh-error{color:red;}</style><div class="gh-buttons"><div class="gh-col"><h4>Save a filter</h4><input class="gh-new-filter" placeholder="Enter a name for this filter"/><div id="actionlinks" class="gh-save-button"><a id="gh-save" href="#">SAVE</a></div><div id="gh-error"></div></div></div>');
+	$('.gh-buttons').append('<div class="gh-col"><h4>Saved Filters</h4><input class="gh-live-search" placeholder="Search for a filter" /></div>');
 	getSaved();
 
 	$('#gh-save').click(function(){
