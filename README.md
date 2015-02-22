@@ -2,6 +2,8 @@
 
 For now, this extension simply adds the ability to save filters so that you don't have to waste time navigating through grailed.com's filters. More features are coming soon.
 
+[View it on the Chrome store](https://chrome.google.com/webstore/detail/grailed-helper/bhnohonanllcpbpbeaahpeihadnfdefk)
+
 The MIT License (MIT)
 
 Copyright (c) 2015 Greg Kim
