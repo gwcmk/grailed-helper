@@ -1,6 +1,8 @@
 #Grailed Helper
 
-For now, this extension simply adds the ability to save filters so that you don't have to waste time navigating through grailed.com's filters. More features are coming soon.
+For now, this extension simply adds the ability to save filters so that you don't have to waste time navigating through grailed.com's filters.
+
+Edit (10/2/2015): Because of an update to grailed.com, this extension no longer works. I may eventually fix it, but for now, development has stopped.
 
 [View it on the Chrome store](https://chrome.google.com/webstore/detail/grailed-helper/bhnohonanllcpbpbeaahpeihadnfdefk)
 
